@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	pilha := Pilha{}
+	pilha := Pilha{} // cria instância
 
 	fmt.Println("Pilha criada com tamanho", pilha.Tamanho())
 	fmt.Println("Vazia?", pilha.Vazia())

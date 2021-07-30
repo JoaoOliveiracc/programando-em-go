@@ -8,10 +8,10 @@ import (
 
 func main() {
 	entrada := os.Args[1:]
-	numeros := make([]int, len(entrada))
+	numeros := make([]int, len(entrada)) // slice de inteiros com o tamnaho igual ao comprimento da lista de argumentos passados via linha de comando
 
 	for i, n := range entrada {
-		numero, err := strconv.Atoi(n)
+		numero, err := strconv.Atoi(n) // converte valor do argumento em inteiro
 
 		if err != nil {
 			fmt.Printf("%s não é um número válido!\n", n)
@@ -25,16 +25,16 @@ func main() {
 }
 
 func quicksort(numeros []int) []int {
-	if len(numeros) <= 1 {
+	if len(numeros) <= 1 { // condição de parada
 		return numeros
 	}
 
-	n := make([]int, len(numeros))
-	copy(n, numeros)
+	n := make([]int, len(numeros)) // slice de inteiros com o tamnaho igual ao comprimento do slice passado para a função
+	copy(n, numeros) // cria cópia do slice numeros para n
 
 	indicePivo := len(n) / 2
 	pivo := n[indicePivo]
-	n = append(n[:indicePivo], n[indicePivo+1:]...)
+	n = append(n[:indicePivo], n[indicePivo+1:]...) // slice com elementos anteriores e posteriores ao pivô
 
 	menores, maiores := particionar(n, pivo)
 
